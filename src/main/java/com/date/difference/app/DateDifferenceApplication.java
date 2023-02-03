@@ -1,4 +1,4 @@
-package com.date.difference.app.DateDifference;
+package com.date.difference.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

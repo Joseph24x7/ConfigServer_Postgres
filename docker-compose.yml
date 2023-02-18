@@ -23,6 +23,6 @@ services:
       POSTGRES_PASSWORD: myconfigpass
       POSTGRES_DB: config
     ports:
-      - 5433:5432
+      - 5433:5433
     volumes:
        - ./data:/var/lib/postgresql/data

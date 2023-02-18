@@ -11,7 +11,6 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5433/config
       - SPRING_DATASOURCE_USERNAME=myconfig
       - SPRING_DATASOURCE_PASSWORD=myconfigpass
-      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect
     volumes:
       - ./config:/config
     
@@ -23,6 +22,6 @@ services:
       POSTGRES_PASSWORD: myconfigpass
       POSTGRES_DB: config
     ports:
-      - 5433:5433
+      - 5433:5432
     volumes:
        - ./data:/var/lib/postgresql/data

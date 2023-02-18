@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3'
 services:
   config_server:
     image: joseph24x7/configserver:latest

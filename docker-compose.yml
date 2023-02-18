@@ -1,14 +1,27 @@
-version: '3'
+version: "3.9"
 services:
-  app:
-    image: joseph24x7/datedifference
+  config_server:
+    image: joseph24x7/configserver:latest
+    container_name: config_server
     ports:
-      - "8084:8084"
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "80:80"
-    volumes:
-      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - "8888:8888"
     depends_on:
-      - app
+      - postgres_config
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5433/config
+      - SPRING_DATASOURCE_USERNAME=myconfig
+      - SPRING_DATASOURCE_PASSWORD=myconfigpass
+    volumes:
+      - ./config:/config
+    
+  postgres_config:
+    container_name: postgres_config
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: myconfig
+      POSTGRES_PASSWORD: myconfigpass
+      POSTGRES_DB: config
+    ports:
+      - 5433:5432
+    volumes:
+       - ./data:/var/lib/postgresql/data

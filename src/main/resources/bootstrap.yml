@@ -5,12 +5,9 @@ spring:
   profiles:
     active: jdbc
 
-  ## GIT
   cloud:
     config:
       server:
-
-## JDBC
         jdbc:
           order: 1
           sql: SELECT KEY, VALUE, LABEL from MYAPP.CONFIG_PROPERTIES where APPLICATION=? and PROFILE=? and LABEL=?

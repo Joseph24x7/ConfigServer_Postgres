@@ -3,9 +3,6 @@ server:
 
 spring:
   datasource:
-    hikari:
-      connection-timeout: 5000
-      maximum-pool-size: 10
     url: jdbc:postgresql://localhost:5432/myuser
     username: myuser
     password: mypassword
